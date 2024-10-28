@@ -1,0 +1,78 @@
+.stats {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 10px;
+    background-color: #e0f7fa; /* Fondo de estilo Pokédex */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 10px;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stats:hover {
+    transform: scale(1.02); /* Efecto de agrandamiento al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #72ff3b; /* Color amarillo Pokédex */
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.stat-item:hover {
+    background-color: #ffe082; /* Cambio de color en hover */
+    transform: scale(1.03); /* Ligero agrandamiento */
+}
+
+.stat-item h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.health-container, .attack-container, .defense-container {
+    display: flex;
+    gap: 3px;
+}
+
+.health, .attack, .defense {
+    display: inline-block;
+    width: 10px;
+    height: 15px;
+    margin: 3px;
+    transition: transform 0.3s;
+}
+
+.health {
+    background-color: #ff5252;
+}
+
+.attack {
+    font-size: 1.2rem;
+    color: #ff9800;
+}
+
+.defense {
+    font-size: 1.2rem;
+    color: #2196f3;
+}
+
+.health:hover, .attack:hover, .defense:hover {
+    transform: scale(1.3); /* Efecto de aumento en los ítems individuales */
+}

@@ -1,0 +1,17 @@
+<div class="pokedex-view">
+    <span class="title">Pokédex</span>
+    
+    <section class="pokedex">
+        <!-- Los puntos se han movido a la parte superior -->
+        <span class="point point-1"></span>
+        <span class="point point-2"></span>
+        
+        <app-pokedex [imagenUrl]="pokemonImagen"></app-pokedex>
+    </section>
+    
+    <button class="change-button" (click)="changePokemon()">Siguiente Pokémon</button>
+    <button class="change-button" (click)="AnteriorPokemon()">Anterior Pokémon</button>
+    <section class="graph">
+        <app-graphs></app-graphs>
+    </section>
+</div>
