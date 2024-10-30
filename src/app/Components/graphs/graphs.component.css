@@ -1,78 +1,128 @@
-.stats {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding: 10px;
-    background-color: #e0f7fa; /* Fondo de estilo Pokédex */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    gap: 10px;
-    margin: 0 auto;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* graphs.component.css */
+.stats-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.stats:hover {
-    transform: scale(1.02); /* Efecto de agrandamiento al pasar el mouse */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.stats-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pokemon-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.pokemon-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.pokemon-number {
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.pokemon-type {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.pokemon-type:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.stats-grid {
+    display: grid;
+    gap: 20px;
 }
 
 .stat-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 100px 1fr;
     align-items: center;
-    background-color: #72ff3b; /* Color amarillo Pokédex */
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s, transform 0.3s;
+    gap: 15px;
 }
 
-.stat-item:hover {
-    background-color: #ffe082; /* Cambio de color en hover */
-    transform: scale(1.03); /* Ligero agrandamiento */
+.stat-item h3 {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0;
 }
 
-.stat-item h2 {
-    font-size: 1rem;
-    font-weight: bold;
+.stat-bar-container {
+    background: #f0f0f0;
+    height: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.stat-bar {
+    height: 100%;
+    border-radius: 12px;
+    transition: width 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stat-value {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
     color: #333;
-    margin: 0;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
 
-.stat-item p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
+/* Colores para las barras de estadísticas con gradientes */
+.hp { background: linear-gradient(90deg, #ff5959 0%, #ff0000 100%); }
+.attack { background: linear-gradient(90deg, #f5ac78 0%, #f08030 100%); }
+.defense { background: linear-gradient(90deg, #fae078 0%, #f8d030 100%); }
+
+/* Colores para los tipos de Pokémon */
+.normal { background: #A8A77A; color: white; }
+.fire { background: #EE8130; color: white; }
+.water { background: #6390F0; color: white; }
+.electric { background: #F7D02C; color: black; }
+.grass { background: #7AC74C; color: white; }
+.ice { background: #96D9D6; color: black; }
+.fighting { background: #C22E28; color: white; }
+.poison { background: #A33EA1; color: white; }
+.ground { background: #E2BF65; color: black; }
+.flying { background: #A98FF3; color: white; }
+.psychic { background: #F95587; color: white; }
+.bug { background: #A6B91A; color: white; }
+.rock { background: #B6A136; color: white; }
+.ghost { background: #735797; color: white; }
+.dragon { background: #6F35FC; color: white; }
+.dark { background: #705746; color: white; }
+.steel { background: #B7B7CE; color: black; }
+.fairy { background: #D685AD; color: white; }
+
+/* Animación para las barras de estadísticas */
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
-.health-container, .attack-container, .defense-container {
-    display: flex;
-    gap: 3px;
-}
-
-.health, .attack, .defense {
-    display: inline-block;
-    width: 10px;
-    height: 15px;
-    margin: 3px;
-    transition: transform 0.3s;
-}
-
-.health {
-    background-color: #ff5252;
-}
-
-.attack {
-    font-size: 1.2rem;
-    color: #ff9800;
-}
-
-.defense {
-    font-size: 1.2rem;
-    color: #2196f3;
-}
-
-.health:hover, .attack:hover, .defense:hover {
-    transform: scale(1.3); /* Efecto de aumento en los ítems individuales */
+.stat-bar {
+    animation: fillBar 1.5s ease-out forwards;
 }

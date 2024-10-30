@@ -1,45 +1,34 @@
-<section class="stats">
-    <div class="stat-item">
-        <h2>ID:</h2>
-        <p>{{idPokemon}}</p>
+<!-- graphs.component.html -->
+<div class="stats-container">
+    <div class="pokemon-info">
+        <h2 class="pokemon-name">{{nombrePokemon}}</h2>
+        <span class="pokemon-number">#{{idPokemon.padStart(3, '0')}}</span>
+        <span class="pokemon-type" [ngClass]="tipoPokemon.toLowerCase()">{{tipoPokemon}}</span>
     </div>
-    <div class="stat-item">
-        <h2>Tipo:</h2>
-        <p>{{tipoPokemon}}</p>
-    </div>
-    <div class="stat-item">
-        <h2>Nombre:</h2>
-        <p>{{nombrePokemon}}</p>
-    </div>
-    <div class="stat-item">
-        <h2>Vida:</h2>
-        <div class="health-container">
-            <span class="health" *ngIf="vidaPokemon >= 0"></span>
-            <span class="health" *ngIf="vidaPokemon >= 20"></span>
-            <span class="health" *ngIf="vidaPokemon >= 40"></span>
-            <span class="health" *ngIf="vidaPokemon >= 80"></span>
-            <span class="health" *ngIf="vidaPokemon >= 100"></span>
+
+    <div class="stats-grid">
+        <div class="stat-item">
+            <h3>HP</h3>
+            <div class="stat-bar-container">
+                <div class="stat-bar hp" [style.width.%]="vidaPokemon"></div>
+                <span class="stat-value">{{vidaPokemon}}</span>
+            </div>
+        </div>
+
+        <div class="stat-item">
+            <h3>Attack</h3>
+            <div class="stat-bar-container">
+                <div class="stat-bar attack" [style.width.%]="ataquePokemon"></div>
+                <span class="stat-value">{{ataquePokemon}}</span>
+            </div>
+        </div>
+
+        <div class="stat-item">
+            <h3>Defense</h3>
+            <div class="stat-bar-container">
+                <div class="stat-bar defense" [style.width.%]="defensaPokemon"></div>
+                <span class="stat-value">{{defensaPokemon}}</span>
+            </div>
         </div>
     </div>
-    <div class="stat-item">
-        <h2>Ataque:</h2>
-        <div class="attack-container">
-            <span class="attack" *ngIf="ataquePokemon >= 0"></span>
-            <span class="attack" *ngIf="ataquePokemon >= 20"></span>
-            <span class="attack" *ngIf="ataquePokemon >= 40"></span>
-            <span class="attack" *ngIf="ataquePokemon >= 80"></span>
-            <span class="attack" *ngIf="ataquePokemon >= 100"></span>
-        </div>
-    </div>
-    <div class="stat-item">
-        <h2>Defensa:</h2>
-        <div class="defense-container">
-            <span class="defense" *ngIf="defensaPokemon >= 0"></span>
-            <span class="defense" *ngIf="defensaPokemon >= 20"></span>
-            <span class="defense" *ngIf="defensaPokemon >= 40"></span>
-            <span class="defense" *ngIf="defensaPokemon >= 80"></span>
-            <span class="defense" *ngIf="defensaPokemon >= 100"></span>
-        </div>
-    </div>
-  </section>
-  
+</div>

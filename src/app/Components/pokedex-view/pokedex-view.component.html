@@ -1,16 +1,31 @@
+<!-- pokedex-view.component.html -->
 <div class="pokedex-view">
     <span class="title">Pokédex</span>
     
     <section class="pokedex">
-        <!-- Los puntos se han movido a la parte superior -->
-        <span class="point point-1"></span>
-        <span class="point point-2"></span>
+        <div class="led-container">
+            <span class="point point-1"></span>
+            <span class="point point-2"></span>
+        </div>
         
-        <app-pokedex [imagenUrl]="pokemonImagen"></app-pokedex>
+        <div class="screen-container">
+            <app-pokedex [imagenUrl]="pokemonImagen"></app-pokedex>
+        </div>
+
+        <div class="controls">
+            <button class="change-button prev" 
+                    [disabled]="pokemonId <= 1"
+                    (click)="AnteriorPokemon()">
+                Anterior
+            </button>
+            <button class="change-button next" 
+                    [disabled]="pokemonId >= 898"
+                    (click)="changePokemon()">
+                Siguiente
+            </button>
+        </div>
     </section>
-    
-    <button class="change-button" (click)="changePokemon()">Siguiente Pokémon</button>
-    <button class="change-button" (click)="AnteriorPokemon()">Anterior Pokémon</button>
+
     <section class="graph">
         <app-graphs></app-graphs>
     </section>
