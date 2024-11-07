@@ -12,6 +12,15 @@
             <app-pokedex [imagenUrl]="pokemonImagen"></app-pokedex>
         </div>
 
+        <app-graphs 
+            [idPokemon]="currentPokemon.id"
+            [nombrePokemon]="currentPokemon.nombre"
+            [tipoPokemon]="currentPokemon.tipo"
+            [vidaPokemon]="currentPokemon.vida"
+            [ataquePokemon]="currentPokemon.ataque"
+            [defensaPokemon]="currentPokemon.defensa">
+        </app-graphs>
+
         <div class="controls">
             <button class="change-button prev" 
                     [disabled]="pokemonId <= 1"
@@ -19,14 +28,10 @@
                 Anterior
             </button>
             <button class="change-button next" 
-                    [disabled]="pokemonId >= 898"
-                    (click)="changePokemon()">
-                Siguiente
-            </button>
+        [disabled]="pokemonId >= totalPokemons"
+        (click)="changePokemon()">
+    Siguiente
+</button>
         </div>
-    </section>
-
-    <section class="graph">
-        <app-graphs></app-graphs>
     </section>
 </div>
